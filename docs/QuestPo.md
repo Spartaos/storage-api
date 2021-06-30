@@ -157,7 +157,7 @@ Este proyecto registrara preguntas y respuestas de usuarios con temas relacionad
 - preguntas (clave_pre, clave_usuario, pregunta)
 - respuesta(clave_res,clave_pre, respuesta)
 
-## API
+## APIz
 
 | Path                  | Descripción |
 | --------------------- | ----------- |
