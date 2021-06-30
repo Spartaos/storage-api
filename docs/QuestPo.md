@@ -151,7 +151,7 @@ Crear todas las rutas especificadas en su archivo de documentación dentro de su
 >>>>>>> 78e0ada (Actualizacion de estructura)
 Este proyecto registrara preguntas y respuestas de usuarios con temas relacionados a tecnologias actuales.
 
-## Estructura deseada
+## Estructura deseadad
 
 - Usuario (clave_user,user_name,password)
 - preguntas (clave_pre, clave_usuario, pregunta)
