@@ -5,7 +5,7 @@ Este proyecto registrara preguntas y respuestas de usuarios con temas relacionad
 
 | Path                  | Descripción |
 | --------------------- | ----------- |
-| /Quest-Po/consult           | Se podran consultar las notas almacenadas con su nombre            |
-| /Quest-Po/consult/<key>           | Se podran consultar las notas almacenadas con una palabra clave            |
-| /Quest-Po/consult/<creator>       | Se mostraran las notas de un creador en espesifico           |
-| /Quest-Po/creator/       | Se mostraran los creadores de notas           |
+| /Quest-Po/consult           | Se podran consultar las preguntas almacenadas con su numero            |
+| /Quest-Po/consult/<key>           | Se podran consultar las preguntas almacenadas con una palabra clave            |
+| /Quest-Po/consult/<creator>       | Se mostraran las preguntas de un creador en espesifico           |
+| /Quest-Po/creator/       | Se mostraran los creadores de las preguntas           |
