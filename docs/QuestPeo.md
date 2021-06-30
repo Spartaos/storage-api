@@ -1,2 +1,2 @@
 <h1>QuestPeo</h1>
-En este proyecto se realizara una interface de cuestionarios para usuarios
+En este proyecto se realizara una serie de preguntas para los usuarios, con tema a tecnologias y temas modernos relacionados.
