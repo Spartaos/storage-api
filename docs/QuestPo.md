@@ -16,12 +16,13 @@ Este proyecto registrara preguntas y respuestas de usuarios con temas relacionad
 | Path                  | Descripción |
 | --------------------- | ----------- |
 | /Quest-Po/login       |             |
-| /Quest-Po/           | Se podran consultar las preguntas almacenadas con una palabra clave            |
-| /Quest-Po/consult/<clave_usuario>       | Se mostraran las preguntas de un creador en espesifico           |
-| /Quest-Po/creator/       | Se mostraran los creadores de las preguntas           |
+| /Quest-Po/Buscar      | Se podran consultar las preguntas almacenadas con una palabra clave                     |
+| /Quest-Po/consult/    | Se mostraran las preguntas de un creador en espesifico                            |
+| /Quest-Po/creator/       | Se mostraran los creadores de las preguntas                             |
 
 ## Operaciones de Almacenamiento de datos
 
 ### Operaciones de Usuario
+
 #### Registrar un usuario
 - Solicitamos Usuario y contraseña
