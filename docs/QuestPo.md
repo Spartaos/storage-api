@@ -4,30 +4,17 @@ materias de tronco comun.
 
 ## Estructura deseada
 
-- Usuario (clave_user,user_name,password)
-- tema (clave_tema)
 - preguntas (clave_pre, clave_usuario, clave_tema , pregunta)
 - respuesta(clave_res,clave_pre, respuesta)
 
-## API's
-
-### Registro de usuarios
-- Se solicita un nombre de usurario y contraseña
-
-
+## Operacione de almacenamiento
+###Solicitar lista de preguntas por keyword
 | Path                  | Descripción |
 | --------------------- | ----------- |
-| /Quest-Po/login       |             |
-| /Quest-Po/Buscar      | Se podran consultar las preguntas almacenadas con una palabra clave                     |
-| /Quest-Po/consult/    | Se mostraran las preguntas de un creador en espesifico                            |
-| /Quest-Po/creator/    | Se mostraran los creadores de las preguntas                             |
+| /Quest-Po/list/<keyword>     |       Solicitar una lista de preguntas por keyword      |
+| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
+| /Quest-PO/question/<question_id>|Solicitar pregunta con id question_id|
 
-## Operaciones de Almacenamiento de datos
-### Realizacion de creacion  
-> Crear una pregunta
-- Solicitar Tema relacionado
-- Solicitar creacion de preguntas
-- El identificador clave de la pregunta sera autoasignada
 
 > Crear una respuesta
 - Solicitar clave de pregunta
@@ -38,4 +25,8 @@ materias de tronco comun.
  - Realizar busqueda de temas de interes
  - Realizar creacion de preguntas
  - Realizar creacion de respuestas
- 
+ ### Registro de usuarios
+ - Se solicita un nombre de usurario y contraseña
+
+
+                           
