@@ -8,13 +8,6 @@ materias de tronco comun.
 - respuesta(clave_res,clave_pre, respuesta)
 
 ## Operacione de almacenamiento
-### Solicitar lista de preguntas por keyword
-| Path                  | Descripción |
-| --------------------- | ----------- |
-| /Quest-Po/list/<keyword>     |       Solicitar una lista de preguntas por keyword      |
-| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
-| /Quest-PO/question/<question_id>|Solicitar pregunta con id question_id|
-
 
 ### Crear una respuesta
 - Solicitar palabra clave de pregunta
@@ -76,8 +69,24 @@ materias de tronco comun.
       respuesta: "respuesta"
       datetime: "xxxx-xx-xxTxx-xx"
       question_id:<keyword>
-      
+
       ]
   }
 }
 ```
+### Solicitar lista de preguntas por keyword
+| Path                  | Descripción |
+| --------------------- | ----------- |
+| /Quest-Po/list/<keyword>     |       Solicitar una lista de preguntas por keyword      |
+| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
+| /Quest-Po/question/<question_id>|Solicitar pregunta con id question_id|
+| /Quest_Po/addquestion |Agregar pregunta|
+
+
+## Archivo principal y ruta de almacenamiento
+
+- GET /quest_po/question
+- GET /quest-po/user
+- GET /quest_po/list
+- POST /quest-po/addquestion
+- OST /quest-po/addrespuesta
