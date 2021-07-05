@@ -8,7 +8,7 @@ materias de tronco comun.
 - respuesta(clave_res,clave_pre, respuesta)
 
 ## Operacione de almacenamiento
-###Solicitar lista de preguntas por keyword
+### Solicitar lista de preguntas por keyword
 | Path                  | Descripción |
 | --------------------- | ----------- |
 | /Quest-Po/list/<keyword>     |       Solicitar una lista de preguntas por keyword      |
@@ -16,17 +16,68 @@ materias de tronco comun.
 | /Quest-PO/question/<question_id>|Solicitar pregunta con id question_id|
 
 
-> Crear una respuesta
-- Solicitar clave de pregunta
-- Solicitar respuesta
+### Crear una respuesta
+- Solicitar palabra clave de pregunta
 
 ### Operaciones de usurio
  - Registrar usuario
- - Realizar busqueda de temas de interes
  - Realizar creacion de preguntas
  - Realizar creacion de respuestas
- ### Registro de usuarios
+
+### Registro de usuarios
  - Se solicita un nombre de usurario y contraseña
 
+## Estuctura de solicitud y respuesta
+### Registro de un usuario
 
-                           
+```
+{
+    "usuario": "userimio",
+    "password": "tumundouser"
+}
+```
+### Busqueda de preguntas por keyword
+```
+    {
+      keyword: "keyword",
+      question:[
+          {
+            id:2, question: "Esta es unapregunta"
+          },
+          {
+            id:3, qustion: "Esta es otra pregunta"
+          },
+      ]
+
+    }
+```
+
+### registos de  pregunta
+
+```
+{
+  question:{
+      question_id:<question_id>
+      user_id
+      question:"pregunta??"
+      datetime: "xxxx-xx-xxTxx-xx"
+      keyword:[
+      "tegnologia","biologia","artes musicales"
+      ]
+  }
+}
+```         
+
+### registros de respuestas            
+```
+{
+  respuesta:{
+      respuesta_id:<respuesta_id>
+      respuesta: "respuesta"
+      datetime: "xxxx-xx-xxTxx-xx"
+      question_id:<keyword>
+      
+      ]
+  }
+}
+```
