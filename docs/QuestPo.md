@@ -89,4 +89,4 @@ materias de tronco comun.
 - GET /quest-po/user
 - GET /quest_po/list
 - POST /quest-po/addquestion
-- OST /quest-po/addrespuesta
+- POST /quest-po/addrespuesta
