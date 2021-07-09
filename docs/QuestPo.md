@@ -114,9 +114,10 @@ Una vez la idea implementada y con u optimo funcionamineto, es de alta relevanci
 ## Creacion de fork en storage-api
 
 * Entregable : Señalar cual es el commit-has, a partir del que se realizo el fork
-|Descripcion                |Commit hash                       
+
+| Descripcion | Commit hash |                    
 |----------------|-------------------------------|
-|    |          |
+|  Creacion de Fork  | 611e82fc76fa90423ddde10f12ebe3028d1e3cbd         |
 
 Crear los archivos correspondientes a su proyecto, y someterlos a control de versiones
 - Entregable, señalar el commit-hash que contiene la creación de dichos archivos.–Archivos en./docs,./routes,./modules,./models, nombrados con el slug de su proyecto.
@@ -124,7 +125,7 @@ Crear los archivos correspondientes a su proyecto, y someterlos a control de ver
 
 |Descripcion                |Commit hash                          
 |----------------|-------------------------------|
-|   | |   
+| Creacion de /Quest-Po  | 611e82fc76fa90423ddde10f12ebe3028d1e3cbd|   
 
 
 Crear todas las rutas especificadas en su archivo de documentación dentro de su archivo en la carpeta routes, y todas deben de responder 501, con Content-Type: application/json, y un cuerpo de respuesta en formato json con 2 llaves,code y message, el message debe contener el mensaje, Not Implemented.
