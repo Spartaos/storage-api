@@ -6,10 +6,10 @@ materias de tronco comun.
 
 Las entidades en mente para estre proyecto son las siguientes:
 - Usuario (id_user,Nombre ,fecha_nac, email)
-- preguntas (clave_pre, clave_usuario, clave_tema , pregunta)
+- preguntas (clave_pre, clave_usuario, datetime, clave_tema)
 - respuesta(clave_res,clave_pre, respuesta)
+- tema (clave_tema)
 
-## Operacione de almacenamiento
 
 ### Crear una respuesta
 - Solicitar palabra clave de pregunta
@@ -133,7 +133,7 @@ Crear todas las rutas especificadas en su archivo de documentación dentro de su
 
 |Descripcion                |Commit hash                          
 |----------------|-------------------------------|
-|  | |    
+| Creacion de questpo.py | |    959284a3fbb618af04b39fbc8f8d129aea1b3ffc
 
 Crear en su carpeta de modulos funciones que emulen las interacciones con el almacén de archivos o datos, es decir que si necesitas una función de consulta, crear una función que retorne una consulta simulada con datos codificados como constantes, y si necesitas crear objetos funciones que retornen simulando una creación exitosa.
 
