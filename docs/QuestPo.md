@@ -22,8 +22,6 @@ Las entidades en mente para este proyecto son las siguientes:
 
 ###  Operaciones de Almacenamiento de datos
 
-## Crear una respuesta
-- Solicitar palabra clave de pregunta
 
 ## Operaciones de usurio
  - Registrar usuario
