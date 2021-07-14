@@ -28,14 +28,14 @@ def add_a_quest(*args, **kwargs):
     bottle.response.content_type = "application/json"
     return dict(code=501, message="Not implemented")
 
-## Get videogames List
+## Get question  List
 @app.get("/quest-po/list")
 def get_quest_list(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"
     return dict(code=501, message="Not implemented")
 
-## Get the info for a videogame
+## Get muestra la informacion de la respuesta
 @app.get("/quest-po/<respuesta_id>")
 def get_a_videogame(*args, **kwargs):
     bottle.response.status = 501
