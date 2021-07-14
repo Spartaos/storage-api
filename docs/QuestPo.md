@@ -1,112 +1,124 @@
 # Descripcion del proyecto
-Este proyecto registrara preguntas y respuestas de usuarios con temas relacionados a tecnologias o
-materias de tronco comun.
+Este proyecto plantea la idea de un tipo block de preguntas y respuestas de diferentes temas relevantes, para asi poder contar con una libreria de preguntas comunes en las que se puedan apoyar y asi comparar respuestas entre los usuarios y formular sus propias respuestas en base a las respuestas de otros usuarios sin alejarse le la respuesta correcta.
 
 ## Entidades
 
-Las entidades en mente para estre proyecto son las siguientes:
+Las entidades en mente para este proyecto son las siguientes:
+
 - Usuario (id_user,Nombre ,fecha_nac, email)
-- preguntas (clave_pre, clave_usuario, datetime, clave_tema)
+- preguntas (clave_pre, pregunta, clave_usuario, datetime, clave_tema)
 - respuesta(clave_res,clave_pre, respuesta)
-- tema (clave_tema)
+- tema (clave_tema, tema)
 
+### API
 
-### Crear una respuesta
+| Path                  | Descripción |
+| --------------------- | ----------- |
+| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
+| /Quest-Po/question/<question_id>|Solicitar pregunta con id question_id|
+| /Quest_Po/add_a_quest |Agregar pregunta|
+| /Quest_Po/addrespuesta/<clave_res>|Agregar una respuesta|
+|/Quest_Po/userinfo/|Ver la informacion de los usuarios|
+
+###  Operaciones de Almacenamiento de datos
+
+## Crear una respuesta
 - Solicitar palabra clave de pregunta
 
-### Operaciones de usurio
+## Operaciones de usurio
  - Registrar usuario
  - Realizar creacion de preguntas
  - Realizar creacion de respuestas
 
-### Registro de usuarios
+## Registro de usuarios
  - Se solicita un nombre de usurario y contraseña
 
-## Estuctura de solicitud y respuesta
-### Registro de un usuario
+## Realizar una preguntas
+- realizar una pregunta
+- la clave de la pregunta se realizara automaticamente
+
+### Estuctura de solicitud y respuesta
+
+## Registro de un usuario
 
 ```
 {
-    "usuario": "userimio",
+    "usuario": "clarkken99",
     "password": "tumundouser"
 }
 ```
-### Busqueda de preguntas por keyword
+## Registro de una pregunta de manera exitosa
 ```
     {
-      keyword: "keyword",
-      question:[
-          {
-            id:2, question: "Esta es unapregunta"
-          },
-          {
-            id:3, qustion: "Esta es otra pregunta"
-          },
-      ]
-
+      "clave_pre" : "Que es la paravirtualizacion?"
+      "datetime" : "XX-XX-XXXXHXX:XX:XX"
+      "Tema" : "Servidores"
     }
 ```
 
-### registos de  pregunta
+## Mensaje de fallo
 
 ```
 {
-  question:{
-      question_id:<question_id>
-      user_id
-      question:"pregunta??"
-      datetime: "xxxx-xx-xxTxx-xx"
-      keyword:[
-      "tegnologia","biologia","artes musicales"
-      ]
-  }
-}
+          "Code": "500",
+          "mesagge": "Error al capturar la pregunta"
+    }
 ```         
 
-### registros de respuestas            
+## Mensaje de respuestas            
 ```
 {
-  respuesta:{
-      respuesta_id:<respuesta_id>
-      respuesta: "respuesta"
-      datetime: "xxxx-xx-xxTxx-xx"
-      question_id:<keyword>
+          "Respuesta": "El uso de varias capas de virtualizacion"
+          "Tema": "Servidores"
 
-      ]
-  }
+
 }
 ```
-### Solicitar lista de preguntas por keyword
-| Path                  | Descripción |
-| --------------------- | ----------- |
-| /Quest-Po/list/<keyword>     |       Solicitar una lista de preguntas por keyword      |
-| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
-| /Quest-Po/question/<question_id>|Solicitar pregunta con id question_id|
-| /Quest_Po/addquestion |Agregar pregunta|
+
+## Mensaje de fallo            
+```
+{
+          "Code": "500",
+          "mesagge": "Error al capturar de respuesta"
+
+}
+```
+
+## Interaccion con el servidor
 
 
-## Archivo principal y ruta de almacenamiento
+`GET  /quest_po/User/<name_id>`
 
-- GET /quest_po/question
-- GET /quest-po/user
-- GET /quest_po/list
-- POST /quest-po/addquestion
-- POST /quest-po/addrespuesta
+- 200 regresa la informacion de un usuario
+- D.O.M, regresa mensaje de fallo
+
+`POST /quest_po/add_a_quest`
+
+- Recibe la pregunta    
+- 201, Registra los datos de la pregunta
+- D.O.M, regresa estructura de mensaje de fallo     
+
+`GET  /quest_po/<keywords>`
+
+- 200 Regresa una lista de preguntas de los usurios
+- D.O.M, regresa mensaje de fallo   
+
+`GET  /quest_po/<question_id>`
+
+- 201, muetra la informacion de las preguntas echas
+- D.O.M, regresa mensaje de fallo  
 
 
-# Documento de plan de implementacion
+`POST /quest_po/addrespuesta`
+- 201, Registra las respuestas a las preguntas
+- D.O.M, regresa mensaje de fallo  
 
-## Aspecto general
+`GET  /quest_po/<respuesta_id>`
 
-Se a planteado este proyecto para la creacion de preguntas y respuestas entre usuarios, con un estilo foro en el cual se podran conocer los diferentes puntos de vista de los usuarios, asi de esta manera contando con una comunidad colaborativa en la que podramos consultar ideas nuevas en base a respuestas.
+- 201, Muestra las respuestas a las preguntas
+- D.O.M, regresa mensaje de fallo  
 
-### Recursos
-Principalmente la realizacion de este proyecto es necesario tener conocimientos en programacion web, conocer estructuras html, base de datos, codigo en lenguaje Json, etc.
-Un equipo adecuado para la elaboracion y diseño.
 
-### Al finalizar el proyecto
-
-Una vez la idea implementada y con u optimo funcionamineto, es de alta relevancia el mantener un monitoreo adecuado a la plataforma , de esta manera contar con aportes legitimos y utiles a la plataforma.
 
 
 ### Computo en la nube
@@ -134,12 +146,3 @@ Crear todas las rutas especificadas en su archivo de documentación dentro de su
 |Descripcion                |Commit hash                          
 |----------------|-------------------------------|
 | Creacion de questpo.py | |    959284a3fbb618af04b39fbc8f8d129aea1b3ffc
-
-Crear en su carpeta de modulos funciones que emulen las interacciones con el almacén de archivos o datos, es decir que si necesitas una función de consulta, crear una función que retorne una consulta simulada con datos codificados como constantes, y si necesitas crear objetos funciones que retornen simulando una creación exitosa.
-
-- Entregable, señalar el commit-hash que contiene la codificacion de estas funciones asistentes.
-
-
-| Descripcion               |Commit hash                          
-|----------------|-------------------------------|
-|  |  |
