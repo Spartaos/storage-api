@@ -5,7 +5,7 @@ Este proyecto plantea la idea de un tipo block de preguntas y respuestas de dife
 
 Las entidades en mente para este proyecto son las siguientes:
 
-- Usuario (id_user,Nombre ,fecha_nac, email)
+- Usuario (id_user,Nombre ,password,fecha_nac)
 - preguntas (clave_pre, pregunta, clave_usuario, datetime, clave_tema)
 - respuesta(clave_res,clave_pre, respuesta)
 - tema (clave_tema, tema)
