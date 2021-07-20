@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Descripcion del proyecto
 Este proyecto plantea la idea de un tipo bloc de preguntas y respuestas de diferentes temas relevantes, para asi poder contar con una libreria de preguntas comunes en las que se puedan apoyar y asi comparar respuestas entre los usuarios y formular sus propias respuestas en base a las respuestas de otros usuarios sin alejarse le la respuesta correcta.
 
@@ -145,10 +144,6 @@ Crear todas las rutas especificadas en su archivo de documentación dentro de su
 |Descripcion                |Commit hash                          
 |----------------|-------------------------------|
 | Creacion de questpo.py | |    959284a3fbb618af04b39fbc8f8d129aea1b3ffc
-=======
-<h1>Descripcion del proyecto</h1>
-<<<<<<< HEAD
->>>>>>> 445c008 (actualzacion)
 =======
 Este proyecto registrara preguntas y respuestas de usuarios con temas relacionados a tecnologias actuales.
 
