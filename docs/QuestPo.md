@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Descripcion del proyecto
 Este proyecto plantea la idea de un tipo bloc de preguntas y respuestas de diferentes temas relevantes, para asi poder contar con una libreria de preguntas comunes en las que se puedan apoyar y asi comparar respuestas entre los usuarios y formular sus propias respuestas en base a las respuestas de otros usuarios sin alejarse le la respuesta correcta.
 
@@ -145,10 +144,6 @@ Crear todas las rutas especificadas en su archivo de documentación dentro de su
 |Descripcion                |Commit hash                          
 |----------------|-------------------------------|
 | Creacion de questpo.py | |    959284a3fbb618af04b39fbc8f8d129aea1b3ffc
-=======
-=======
-## Descripcion del proyecto
->>>>>>> 78e0ada (Actualizacion de estructura)
 Este proyecto registrara preguntas y respuestas de usuarios con temas relacionados a tecnologias actuales.
 
 ## Estructura deseada
@@ -157,28 +152,12 @@ Este proyecto registrara preguntas y respuestas de usuarios con temas relacionad
 - preguntas (clave_pre, clave_usuario, pregunta)
 - respuesta(clave_res,clave_pre, respuesta)
 
-## APIz
+## API
 
 | Path                  | Descripción |
 | --------------------- | ----------- |
-<<<<<<< HEAD
 | /Quest-Po/consult           | Se podran consultar las notas almacenadas con su nombre            |
 | /Quest-Po/consult/<key>           | Se podran consultar las notas almacenadas con una palabra clave            |
 | /Quest-Po/consult/<creator>       | Se mostraran las notas de un creador en espesifico           |
 | /Quest-Po/creator/       | Se mostraran los creadores de notas           |
 >>>>>>> e6aec3e (Actualizacion de documento de proyecto)
-=======
-| /Quest-Po/consult           | Se podran consultar las preguntas almacenadas con su numero            |
-| /Quest-Po/consult/<clave_pre>           | Se podran consultar las preguntas almacenadas con una palabra clave            |
-| /Quest-Po/consult/<clave_usuario>       | Se mostraran las preguntas de un creador en espesifico           |
-| /Quest-Po/creator/       | Se mostraran los creadores de las preguntas           |
-<<<<<<< HEAD
->>>>>>> 78e0ada (Actualizacion de estructura)
-=======
-
-## Operaciones de Almacenamiento de datos
-
-### Operaciones de Usuario
-#### Registrar un usuarios
-> Solicitamos Usuario y contraseña
->>>>>>> 01e43ee (Actualizacion documento)
