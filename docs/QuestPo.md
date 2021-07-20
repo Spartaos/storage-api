@@ -144,20 +144,3 @@ Crear todas las rutas especificadas en su archivo de documentación dentro de su
 |Descripcion                |Commit hash                          
 |----------------|-------------------------------|
 | Creacion de questpo.py | |    959284a3fbb618af04b39fbc8f8d129aea1b3ffc
-Este proyecto registrara preguntas y respuestas de usuarios con temas relacionados a tecnologias actuales.
-
-## Estructura deseada
-
-- Usuario (clave_user,user_name,password)
-- preguntas (clave_pre, clave_usuario, pregunta)
-- respuesta(clave_res,clave_pre, respuesta)
-
-## API
-
-| Path                  | Descripción |
-| --------------------- | ----------- |
-| /Quest-Po/consult           | Se podran consultar las notas almacenadas con su nombre            |
-| /Quest-Po/consult/<key>           | Se podran consultar las notas almacenadas con una palabra clave            |
-| /Quest-Po/consult/<creator>       | Se mostraran las notas de un creador en espesifico           |
-| /Quest-Po/creator/       | Se mostraran los creadores de notas           |
->>>>>>> e6aec3e (Actualizacion de documento de proyecto)
