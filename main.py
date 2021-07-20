@@ -17,7 +17,7 @@ app = bottle.Bottle()
 
 app.mount("/auth", routes.auth.app)
 app.mount("/storage", routes.storage.app)
-app.mount("/questpo", routes.questpo.py)
+
 
 @app.get("/")
 def root_index(*args, **kwargs):
