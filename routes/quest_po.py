@@ -1,14 +1,15 @@
-from json import dumps as json_dumps
-from os import environ
-import bottle
-from modules.cors import enable_cors
-import modules.utils as utils
-from modules.auth import auth_required
+import json
+from time import time
 import bottle
 from modules.bottles import BottleJson
-app = BottleJson
+from modules.auth import auth_required
+from modules.storage import store_string, get_storage_file
+from models.example import ExampleRecord
+from modules.quest_po import add_a_quest
+from modules.quest_po import reg_respuesta
 
-app = bottle.Bottle()
+
+app = BottleJson()
 
 ## Add a user
 @app.post("/questpo/addUser")
