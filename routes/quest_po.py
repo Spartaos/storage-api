@@ -11,6 +11,9 @@ from modules.quest_po import reg_respuesta
 
 app = BottleJson()
 
+@app.post("/")
+@app.get("/")
+
 ## Add a user
 @app.post("/questpo/addUser")
 def add_a_user(*args, **kwargs):
