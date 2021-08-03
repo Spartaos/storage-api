@@ -4,18 +4,22 @@ import bottle
 from modules.cors import enable_cors
 import modules.utils as utils
 from modules.auth import auth_required
+import bottle
+from modules.bottles import BottleJson
+app = BottleJson
 
 app = bottle.Bottle()
 
 ## Add a user
-@app.post("/quest_po/addUser")
+@app.post("/questpo/addUser")
 def add_a_user(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"
+    print("holamundo")
     return dict(code=501, message="Not implemented")
 
 ## Get user info
-@app.get("/quest_po/addUser/<name_id>")
+@app.get("/questpo/addUser/<name_id>")
 def get_user(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"
@@ -29,7 +33,7 @@ def add_a_quest(*args, **kwargs):
     return dict(code=501, message="Not implemented")
 
 ## Get question  List
-@app.get("/quest-po/list")
+@app.get("/questpo/list")
 def get_quest_list(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"

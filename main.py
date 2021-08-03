@@ -12,12 +12,14 @@ import bottle
 import routes.auth
 import routes.storage
 import models.base
+import routes.questpo
 
 app = bottle.Bottle()
 
 app.mount("/auth", routes.auth.app)
 app.mount("/storage", routes.storage.app)
-app.mount("/questpo", routes.questpo.py)
+app.mount("/questpo", routes.questpo.app)
+
 
 
 @app.get("/")
