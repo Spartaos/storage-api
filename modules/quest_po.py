@@ -6,6 +6,7 @@ import jwt
 import binascii
 from functools import wraps
 import models.auth as mauth
+
 import json
 from modules.storage import *
 
@@ -22,7 +23,7 @@ def add_a_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None
     return "Exito"
 
 
-def reg_respuesta(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None clave_tema=None):
+def reg_respuesta(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None, clave_tema=None):
     print("Guardar en reg_respuesta")
     print(respuesta)
     para_almacenar = {"clave_usuario": clave_usuario,"respuesta": respuesta, "datetime": datetime, "clave_tema":clave_tema }
