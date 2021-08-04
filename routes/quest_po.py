@@ -36,10 +36,10 @@ def addquest(*args, **kwargs):
     payload = bottle.request.json
     print(payload)
     try:
-        clave_pre = str(payload['clave_pre'])
-        clave_usuario = str(payload['clave_usuario'])
-        pregunta = str(payload['pregunta'])
-        clave_tema = str(payload['clave_tema'])
+        clave_pre = ['clave_pre'])
+        clave_usuario =['clave_usuario'])
+        pregunta = ['pregunta'])
+        clave_tema = ['clave_tema'])
         if len(clave_usuario) == 0:
             raise Exception()
         print("Datos validos")
