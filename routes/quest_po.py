@@ -44,7 +44,7 @@ def addquest(*args, **kwargs):
             raise Exception()
         print("Datos validos")
         respuesta = add_a_quest(**payload)
-        raise HTTPError(201, respuesta)
+        raise bottle.HTTPError(201, respuesta)
     except:
         print("Datos invalidos")
         raise bottle.HTTPError(400)
