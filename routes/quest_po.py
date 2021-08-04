@@ -30,6 +30,26 @@ def get_user(*args, **kwargs):
     return dict(code=501, message="Not implemented")
 
 ## agregar pregunta
+@app.post("/addquest")
+def AddVg(*args, **kwargs):
+
+    payload = bottle.request.json
+    print(payload)
+    try:
+        clave_pre = str(payload['clave_pre'])
+        clave_usuario = str(payload['clave_usuario'])
+        pregunta = str(payload['pregunta'])
+        clave_tema = str(payload['clave_tema'])
+        if len(clave_usuario) == 0:
+            raise Exception()
+        print("Datos validos")
+        respuesta = add_a_quest(**payload)
+        raise HTTPError(201, respuesta)
+    except:
+        print("Datos invalidos")
+        raise bottle.HTTPError(400)
+    raise bottle.HTTPError(500)
+
 @app.post("POST /quest-po/addquestion")
 def add_a_quest(*args, **kwargs):
     bottle.response.status = 501
