@@ -31,7 +31,7 @@ def get_user(*args, **kwargs):
 
 ## agregar pregunta
 @app.post("/addquest")
-def AddVg(*args, **kwargs):
+def addquest(*args, **kwargs):
 
     payload = bottle.request.json
     print(payload)
