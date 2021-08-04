@@ -50,6 +50,28 @@ def addquest(*args, **kwargs):
         raise bottle.HTTPError(400)
     raise bottle.HTTPError(500)
 
+## agregar respuesta
+@app.post("/addquest")
+def addquest(*args, **kwargs):
+
+    payload = bottle.request.json
+    print(payload)
+    try:
+        clave_pre = ['clave_pre'])
+        clave_usuario = ['clave_usuario'])
+        respuesta = ['pregunta'])
+        clave_tema = ['clave_tema'])
+        if len(clave_usuario) == 0:
+            raise Exception()
+        print("Datos validos")
+        respuesta = reg_respuesta(**payload)
+        raise HTTPError(201, respuesta)
+    except:
+        print("Datos invalidos")
+        raise bottle.HTTPError(400)
+    raise bottle.HTTPError(500)
+
+
 @app.post("POST /quest-po/addquestion")
 def add_a_quest(*args, **kwargs):
     bottle.response.status = 501
