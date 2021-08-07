@@ -11,6 +11,7 @@ from modules.quest_po import reg_respuesta
 
 app = BottleJson()
 
+
 @app.post("/")
 @app.get("/")
 
@@ -39,16 +40,18 @@ def addquest(*args, **kwargs):
         clave_pre = str(payload['clave_pre'])
         clave_usuario = str(payload['clave_usuario'])
         pregunta = str(payload['pregunta'])
+        datetime = str(payload['datetime'])
         clave_tema = str(payload['clave_tema'])
         if len(clave_usuario) == 0:
             raise Exception()
+        # Validacion de fecha
+        year, month, date = [int(x) for x in
+        datetime.split("-")]
         print("Datos validos")
-        respuesta = add_a_quest(**payload)
-        raise bottle.HTTPError(201, respuesta)
     except:
         print("Datos invalidos")
         raise bottle.HTTPError(400)
-    raise bottle.HTTPError(500)
+    raise bottle.HTTPError(501)
 
 ## agregar respuesta
 @app.post("/addquest")
