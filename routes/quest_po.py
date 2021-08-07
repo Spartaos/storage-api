@@ -7,6 +7,7 @@ from modules.storage import store_string, get_storage_file
 from models.example import ExampleRecord
 from modules.quest_po import add_a_quest
 from modules.quest_po import reg_respuesta
+from modules.quest_po import get_quest_list
 
 
 app = BottleJson()
@@ -30,14 +31,14 @@ def addquest(*args, **kwargs):
         datetime = str(payload['datetime'])
         clave_tema = str(payload['clave_tema'])
         if len(clave_usuario) == 0:
-            raise Exception()
+            raise Exception
         # Validacion de fecha
         year, month, date = [int(x) for x in
         datetime.split("-")]
         print("Datos validos")
     except:
         print("Datos invalidos")
-        raise bottle.HTTPError(400)
+        raise bottle.HTTPError(401)
     raise bottle.HTTPError(501)
 
 ##ver preguntas
@@ -45,7 +46,7 @@ def addquest(*args, **kwargs):
 @app.get("/list")
 def get_quest(*args, **kwargs):
     try:
-       respuesta = add_a_quest()
+       respuesta = get_quest_list()
     except:
         raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
