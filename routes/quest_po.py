@@ -14,9 +14,33 @@ app = BottleJson()
 
 @app.post("/")
 @app.get("/")
+## agregar pregunta
+
+@app.post("/addquest")
+def addquest(*args, **kwargs):
+
+    payload = bottle.request.json
+    print(payload)
+    try:
+        clave_pre = str(payload['clave_pre'])
+        clave_usuario = str(payload['clave_usuario'])
+        pregunta = str(payload['pregunta'])
+        datetime = str(payload['datetime'])
+        clave_tema = str(payload['clave_tema'])
+        if len(clave_usuario) == 0:
+            raise Exception()
+        # Validacion de fecha
+        year, month, date = [int(x) for x in
+        datetime.split("-")]
+        print("Datos validos")
+    except:
+        print("Datos invalidos")
+        raise bottle.HTTPError(400)
+    raise bottle.HTTPError(501)
+
 
 ## Add a user
-@app.post("/questpo/addUser")
+@app.post("/addUser")
 def add_a_user(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"

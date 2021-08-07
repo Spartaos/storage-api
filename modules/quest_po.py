@@ -22,7 +22,7 @@ def add_a_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None
     datos_almacenados = {"clave_pre": clave_pre,"pregunta": pregunta, "datetime": datetime, "clave_tema":clave_tema }
     nombr_de_archivo = f"{clave_pre}-{pregunta}.json"
     datos = store_string(
-        "Carpeta1",
+        "quest_po/Carpeta1",
         nombr_de_archivo,
         json.dumps(datos_almacenados)
     )
