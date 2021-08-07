@@ -8,11 +8,17 @@ from functools import wraps
 import models.auth as mauth
 
 import json
-from modules.storage import *
+
+from modules.storage import (
+    store_string,
+    store_bytes,
+    query_storage,
+    get_storage_file
+)
 
 def add_a_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None, clave_tema=None):
     print("almacenado en add_a_quest")
-    print(clave_pre, pregunta,clave_tema)
+    print(clave_pre, pregunta, clave_tema)
     datos_almacenados = {"clave_pre": clave_pre,"pregunta": pregunta, "datetime": datetime, "clave_tema":clave_tema }
     nombr_de_archivo = f"{clave_pre}-{pregunta}.json"
     datos = store_string(
