@@ -45,7 +45,7 @@ def get_id_details(id=None):
 
 def add_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None, clave_tema=None):
     print("Datos de Pregunta")
-    print(clave_pre, clave_usuario pregunta, clave_tema)
+    print(clave_pre, clave_usuario, pregunta, clave_tema)
     print("Exito")
 
     datos_almacenados = {"clave_pre": clave_pre,"pregunta": pregunta, "datetime": datetime, "clave_tema":clave_tema }
