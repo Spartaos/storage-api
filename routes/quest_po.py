@@ -48,7 +48,7 @@ def get_all_info(*args, **kwargs):
     try:
        respuesta = get_user_list()
     except:
-        raise bottle.HTTPError(500, "Error interno")
+        raise bottle.HTTPError(501, "Error interno")
     raise bottle.HTTPError(200, respuesta)
 
 ## Add a user
