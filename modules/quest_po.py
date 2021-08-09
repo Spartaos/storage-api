@@ -28,6 +28,12 @@ def add_a_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None
     )
     return "Exito"
 
+def get_user_list(pregunta=None):
+    query_result = query_storage(
+        "pregunta/preguntas",
+    )
+    if preguntas is None:
+        return query_result["content"]
 
 def reg_respuesta(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None, clave_tema=None):
     print("Guardar en reg_respuesta")
@@ -36,3 +42,10 @@ def reg_respuesta(clave_pre=None, clave_usuario=None, datetime=None,respuesta=No
     json_text = json.dumps(datos_almacenados)
     store_string('rescarpeta', respuesta, datos_almacenados)
     return "Exito"
+
+def get_quest_list(clave_pre=None):
+    query_result = query_storage(
+        "quest_po/Carpeta",
+    )
+    if clave_pre is  None:
+        return query_result["content"]

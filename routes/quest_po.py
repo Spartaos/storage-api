@@ -42,14 +42,15 @@ def addquest(*args, **kwargs):
     raise bottle.HTTPError(501)
 
 ##ver preguntas
-#curl http://localhost:8080/vg_info/list -X GET
+# curl http://localhost:8080/quest_po/list -X GET
 @app.get("/list")
-def get_quest(*args, **kwargs):
+def get_all_info(*args, **kwargs):
     try:
-       respuesta = get_quest_list()
+       respuesta = get_user_list()
     except:
         raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
+
 ## Add a user
 @app.post("/addUser")
 def add_a_user(*args, **kwargs):
