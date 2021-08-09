@@ -102,3 +102,4 @@ def get_answers(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None
            if id in r
         ]
     print("Exito")
+##sd
