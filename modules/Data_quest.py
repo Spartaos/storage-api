@@ -14,14 +14,7 @@ def add_user(id = None, username = None, genero = None, edad = None,  fecha = No
     print("Capturdo")
 
 
-    almacenable = {
-        "id": id,
-        "username": username,
-        "genero": genero,
-        "edad": edad,
-        "fecha": fecha,
-        "correo": correo,
-    }
+    almacenable = {"id": id, "username": username, "genero": genero, "edad": edad, "fecha": fecha, "correo": correo,}
     nombre_de_archivo = f"{username}-{id}-{genero}-{edad}-{fecha}-{correo}.json"
     datos = store_string(
         "user/users",
@@ -54,6 +47,7 @@ def add_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None, 
     print("Datos de Pregunta")
     print(clave_pre, clave_usuario pregunta, clave_tema)
     print("Exito")
+
     datos_almacenados = {"clave_pre": clave_pre,"pregunta": pregunta, "datetime": datetime, "clave_tema":clave_tema }
     nombre_de_archivo = f"{pregunta}-{clave_pre}-{clave_usuario}.json"
     datos = store_string(
@@ -62,3 +56,49 @@ def add_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None, 
         json.dumps(datos_almacenados)
     )
     return datos
+
+def get_preguntas( clave_pre= None, pregunta = None):
+    query_result = query_storage(
+        "pregunta/preguntas",
+    )
+    if id is not None:
+        return [
+           r
+           for r in query_result["content"]
+           if id in r
+        ]
+        print("Respuesta")
+    if encuesta is not None:
+        return [
+           r
+           for r in query_result["content"]
+           if encuesta in r
+        ]
+        print("respuesta")
+
+
+def add_answer(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None, clave_tema=None):
+    print("Respuesta guardada")
+    print(respuesta)
+    print("Exito")
+
+    datos_almacenados = {"clave_usuario": clave_usuario,"respuesta": respuesta, "datetime": datetime, "clave_tema":clave_tema }
+    nombre_de_archivo = f"{respuesta}-{clave_usuario}.json"
+    datos = store_string(
+        "pregunta/respuestas",
+        nombre_de_archivo,
+        json.dumps(datos_almacenados)
+    )
+    return datos
+
+def get_answers(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None, clave_tema=None):
+    query_result = query_storage(
+        "pregunta/respuestas",
+    )
+    if id is not None:
+        return [
+           r
+           for r in query_result["content"]
+           if id in r
+        ]
+    print("Exito")
