@@ -13,12 +13,15 @@ import routes.auth
 import routes.storage
 import models.base
 import routes.quest_po
+import routes.example
 
 app = bottle.Bottle()
 
 app.mount("/auth", routes.auth.app)
 app.mount("/storage", routes.storage.app)
 app.mount("/quest_po", routes.quest_po.app)
+app.mount("/example", routes.example.app)
+app.mount("/storage", routes.quest_po.app)
 
 
 
