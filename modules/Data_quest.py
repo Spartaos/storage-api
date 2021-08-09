@@ -50,20 +50,15 @@ def get_id_details(id=None):
     print("done")
 
 
-def add_quest(encuesta = None, id = None, pregunta_1 = None, pregunta_2 = None, pregunta_3 = None):
-    print("Datos encuesta")
-    print(encuesta, id, pregunta_1, pregunta_2, pregunta_3)
+def add_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None, clave_tema=None):
+    print("Datos de Pregunta")
+    print(clave_pre, clave_usuario pregunta, clave_tema)
     print("Exito")
-
-    almacenable = {
-        "encuesta": encuesta,
-        "id": id,
-        "pregunta_1": pregunta_1,
-    }
-    nombre_de_archivo = f"{encuesta}-{id}-{pregunta_1}-{pregunta_2}-{pregunta_3}.json"
+    datos_almacenados = {"clave_pre": clave_pre,"pregunta": pregunta, "datetime": datetime, "clave_tema":clave_tema }
+    nombre_de_archivo = f"{pregunta}-{clave_pre}-{clave_usuario}.json"
     datos = store_string(
-        "enuesta/encuestas",
+        "pregunta/preguntas",
         nombre_de_archivo,
-        json.dumps(almacenable)
+        json.dumps(datos_almacenados)
     )
     return datos
