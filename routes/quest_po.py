@@ -5,9 +5,13 @@ from modules.bottles import BottleJson
 from modules.auth import auth_required
 from modules.storage import store_string, get_storage_file
 from models.example import ExampleRecord
-from modules.quest_po import add_a_quest
-from modules.quest_po import reg_respuesta
-from modules.quest_po import get_quest_list
+from modules.quest_po import add_user
+from modules.quest_po import get_user_list
+from modules.quest_po import get_id_details
+from modules.quest_po import add_quest
+from modules.quest_po import get_preguntas
+from modules.quest_po import add_answer
+from modules.quest_po import get_answers
 
 
 app = BottleJson()
@@ -19,7 +23,7 @@ app = BottleJson()
 ##$ curl http://localhost:8080/quest_po/addquest -X POST -H 'content-Type: application/json' -d '{"clave_pre":"212","clave_Usuario": "unis","pregunta": "Que son las TICS?", "clave_tema" : "TICS"}'
 
 
-@app.post("/addquest")
+@app.post("/<clave_pre>/pregunta")
 def addquest(*args, **kwargs):
 
     payload = bottle.request.json
@@ -36,10 +40,11 @@ def addquest(*args, **kwargs):
         year, month, date = [int(x) for x in
         datetime.split("-")]
         print("Datos validos")
+        pregunta = add_quest(**payload)
     except:
         print("Datos invalidos")
-        raise bottle.HTTPError(401)
-    raise bottle.HTTPError(501)
+        raise bottle.HTTPError(400)
+    raise bottle.HTTPError(201, "Creaste una nueva pregunta")
 
 ##ver preguntas
 # curl http://localhost:8080/quest_po/list -X GET
