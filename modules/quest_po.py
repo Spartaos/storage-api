@@ -43,12 +43,12 @@ def get_id_details(id=None):
     print("done")
 
 
-def add_quest(clave_pre=None, clave_usuario=None, pregunta=None, datetime=None, clave_tema=None):
+def add_quest(clave_pre=None, clave_usuario=None, pregunta=None,  clave_tema=None):
     print("Datos de Pregunta")
     print(clave_pre, clave_usuario, pregunta, clave_tema)
     print("Exito")
 
-    datos_almacenados = {"clave_pre": clave_pre,"pregunta": pregunta, "datetime": datetime, "clave_tema":clave_tema }
+    datos_almacenados = {"clave_pre": clave_pre, "pregunta": pregunta,  "clave_tema":clave_tema }
     nombre_de_archivo = f"{pregunta}-{clave_pre}-{clave_usuario}.json"
     datos = store_string(
         "pregunta/preguntas",

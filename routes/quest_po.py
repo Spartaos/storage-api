@@ -37,10 +37,10 @@ def store(*args, **kwargs):
     except:
         print("Datos incorrecros")
         raise bottle.HTTPError(405, "datos invalidos")
-    raise bottle.HTTPError(201, respuesta)
+    raise bottle.HTTPError(201, "Usuario agregado")
 ## agregar pregunta
 
-# curl http://localhost:8080/url_messa/list -X GET
+# curl http://localhost:8080/quest_po/list -X GET
 @app.get("/list")
 def get_all_info(*args, **kwargs):
     try:
@@ -49,11 +49,27 @@ def get_all_info(*args, **kwargs):
         raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
 
-##$ curl http://localhost:8080/quest_po/addquest -X POST -H 'content-Type: application/json' -d '{"clave_pre":"212","clave_Usuario": "unis","pregunta": "Que son las TICS?", "clave_tema" : "TICS"}'
+##$ curl http://localhost:8080/quest_po/1/addpregunta -X POST -H 'content-Type: application/json' -d '{"clave_pre":"212","clave_Usuario": "unis","pregunta": "Que son las TICS?", "clave_tema" : "TICS"}'
 
+@app.post("/addsquest")
+def add_quest(*args, **kwargs):
+    payload = bottle.request.json
+    print(payload)
+    try:
+        clave_pre = str(payload['clave_pre'])
+        clave_usuario = str(payload['clave_usuario'])
+        pregunta = str(payload['pregunta'])
+        print("Datos Aceptados")
+        respuesta = add_quest(**payload)
+        print(respuesta)
+        print("Almost done")
+    except:
+        print("Datos incorrecros")
+        raise bottle.HTTPError(405, "datos invalidos")
+    raise bottle.HTTPError(201, "Usuario agregado")
 
-@app.post("/<clave_pre>/pregunta")
-def addquest(*args, **kwargs):
+@app.post("/addpregunta")
+def bar(*args, **kwargs):
 
     payload = bottle.request.json
     print(payload)
@@ -61,7 +77,6 @@ def addquest(*args, **kwargs):
         clave_pre = str(payload['clave_pre'])
         clave_usuario = str(payload['clave_usuario'])
         pregunta = str(payload['pregunta'])
-        datetime  = dt.date.fromisoformat(payload['datetime'])
         clave_tema = str(payload['clave_tema'])
         print("Datos validos")
         pregunta = add_quest(**payload)
