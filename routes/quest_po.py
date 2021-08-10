@@ -52,22 +52,23 @@ def get_all_info(*args, **kwargs):
 ##$ curl http://localhost:8080/quest_po/addquest -X POST -H 'content-Type: application/json' -d '{"clave_pre":"212","clave_Usuario": "unis","pregunta": "Que son las TICS?", "clave_tema" : "TICS"}'
 
 
-@app.post("/pregunta")
-def bar(*args, **kwargs):
+@app.post("/<clave_pre>/pregunta")
+def addquest(*args, **kwargs):
+
     payload = bottle.request.json
     print(payload)
     try:
-        id = str(payload['id'])
-        encuesta = str(payload['encuesta'])
-        pregunta_1= str(payload['pregunta_1'])
-        pregunta_2 = str(payload['pregunta_2'])
-        pregunta_3 = str(payload['pregunta_3'])
+        clave_pre = str(payload['clave_pre'])
+        clave_usuario = str(payload['clave_usuario'])
+        pregunta = str(payload['pregunta'])
+        datetime  = dt.date.fromisoformat(payload['datetime'])
+        clave_tema = str(payload['clave_tema'])
         print("Datos validos")
-        respuesta = add_quest(**payload)
+        pregunta = add_quest(**payload)
     except:
         print("Datos invalidos")
-        raise bottle.HTTPError(400, "Error de datos")
-    raise bottle.HTTPError(201, "Creaste una nueva encuesta")
+        raise bottle.HTTPError(400, "Datos invalidos")
+    raise bottle.HTTPError(201, "Creaste una nueva pregunta")
 
 ##ver preguntas
 # curl http://localhost:8080/quest_po/list -X GET
