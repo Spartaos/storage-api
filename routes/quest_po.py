@@ -17,9 +17,6 @@ from modules.quest_po import get_answers
 app = BottleJson()
 
 
-@app.post("/")
-@app.get("/")
-
 @app.post("/store")
 def store(*args, **kwargs):
     payload = bottle.request.json
