@@ -111,21 +111,21 @@ def get_user(*args, **kwargs):
     return dict(code=501, message="Not implemented")
 
 
-@app.post("POST /quest-po/addquestion")
+@app.post("POST /quest_po/addquestion")
 def add_a_quest(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"
     return dict(code=501, message="Not implemented")
 
 ## Get question  List
-@app.get("/questpo/list")
+@app.get("/quest_po/list")
 def get_quest_list(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"
     return dict(code=501, message="Not implemented")
 
 ## Get muestra la informacion de la respuesta
-@app.get("/quest-po/<respuesta_id>")
+@app.get("/quest_po/<respuesta_id>")
 def get_a_videogame(*args, **kwargs):
     bottle.response.status = 501
     bottle.response.content_type = "application/json"
