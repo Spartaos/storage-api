@@ -31,17 +31,6 @@ def get_user_list(users=None):
     if users is None:
         return query_result["content"]
 
-def get_id_details(id=None):
-    query_result = query_storage(
-        "user/users",
-    )
-    if id is not None:
-        return [
-           r
-           for r in query_result["content"]
-           if id in r
-        ]
-    print("done")
 
 ##agregar Pregunta
 
@@ -65,3 +54,15 @@ def get_quest(pregunta=None):
     )
     if pregunta is  None:
         return query_result["content"]
+##ver pregunta por ID
+def get_pre(pre_id=None):
+    query_result = query_storage(
+        "quest_po/Preguntas",
+    )
+    if pre_id is not None:
+        return [
+           r
+           for r in query_result["content"]
+           if pre_id in r
+        ]
+    print("Exito")

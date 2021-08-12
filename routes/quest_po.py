@@ -9,6 +9,7 @@ from modules.quest_po import add_user
 from modules.quest_po import get_user_list
 from modules.quest_po import Addpre
 from modules.quest_po import get_quest
+from modules.quest_po import get_pre
 
 
 app = BottleJson()
@@ -74,4 +75,16 @@ def get_all_quest(*args, **kwargs):
        respuesta = get_quest()
     except:
         raise bottle.HTTPError(500, "Error interno")
+    raise bottle.HTTPError(200, respuesta)
+
+##Ver pregunta por ID
+#curl http://localhost:8080/quest_po/Q003/getidq -X GET
+
+
+@app.get("/<pre_id>/getidq")
+def get_pre_id(*args, pre_id=None, **kwargs):
+    try:
+        respuesta = get_pre(pre_id = pre_id)
+    except:
+        raise bottle.HTTPError(400)
     raise bottle.HTTPError(200, respuesta)
