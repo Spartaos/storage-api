@@ -35,11 +35,11 @@ def get_user_list(users=None):
 ##agregar Pregunta
 
 
-def Addpre(pre_id=None, user_name=None, tema=None, pregunta=None):
+def Addpre(pre_id=None, user_name=None, tema=None, pregunta=None, fecha=None):
     print("Desde modulo addpre")
     print(pre_id,user_name, tema, pregunta)
-    para_almacenar = {"pre_id": pre_id,"user_name": user_name, "tema": tema, "pregunta":pregunta }
-    nombre_de_archivo = f"{pre_id}-{pregunta}.json"
+    para_almacenar = {"pre_id": pre_id,"user_name": user_name, "tema": tema, "pregunta":pregunta, "fecha":fecha }
+    nombre_de_archivo = f"{pre_id}-{pregunta}-{user_name}-{tema}-{fecha}.json"
     datos = store_string(
         "quest_po/Preguntas",
         nombre_de_archivo,
@@ -48,11 +48,15 @@ def Addpre(pre_id=None, user_name=None, tema=None, pregunta=None):
     return datos
 
 ## obtener Pregunta
-def get_quest(pregunta=None):
+def get_quest(pregunta=None, tema=None, fecha=None):
     query_result = query_storage(
         "quest_po/Preguntas",
     )
     if pregunta is  None:
+        return query_result["content"]
+    if tema is  None:
+            return query_result["content"]
+    if fecha is  None:
         return query_result["content"]
 
 ##ver pregunta por ID
@@ -67,3 +71,17 @@ def get_pre(pre_id=None):
            if pre_id in r
         ]
     print("Exito")
+
+    ##Agregar respuestas
+def add_res(vg_id=None, cheat_id=None, cheat=None, username=None, VideojuegoNombre=None):
+    print("Desde modulo almacenar_cheat")
+    #print(nombre, eda)
+    para_almacenar = {"vg_id": vg_id,"cheat_id": cheat_id, "cheat": cheat, "username":username, "VideojuegoNombre": VideojuegoNombre }
+    json_text = json.dumps(para_almacenar)
+    nombre_de_archivo = f"{vg_id}-{cheat_id}-{VideojuegoNombre}.json"
+    datos = store_string(
+        "vg_info/Cheats",
+        nombre_de_archivo,
+        json.dumps(para_almacenar)
+    )
+    return datos

@@ -1,4 +1,5 @@
 import json
+import datetime as dt
 from time import time
 import bottle
 from modules.bottles import BottleJson
@@ -10,6 +11,8 @@ from modules.quest_po import get_user_list
 from modules.quest_po import Addpre
 from modules.quest_po import get_quest
 from modules.quest_po import get_pre
+from modules.quest_po import add_res
+
 
 
 app = BottleJson()
@@ -47,7 +50,7 @@ def get_all_info(*args, **kwargs):
     raise bottle.HTTPError(200, respuesta)
 
 ##Agregar Pregunta
-##curl http://localhost:8080/quest_po/newq -X POST -H 'content-Type: application/json' -d  '{"pre_id":"Q012","user_name": "useer1","tema": "Tics", "pregunta" : "pregunta2"}'
+##curl http://localhost:8080/quest_po/newq -X POST -H 'content-Type: application/json' -d  '{"pre_id":"Q012","user_name": "useer1","tema": "Tics", "pregunta" : "pregunta2", "fecha":"2021-10-10"}'
 
 
 @app.post("/newq")
@@ -60,6 +63,7 @@ def newq(*args, **kwargs):
         user_name = str(payload['user_name'])
         tema = str(payload['tema'])
         pregunta = str(payload['pregunta'])
+        fecha = dt.date.fromisoformat(payload['fecha'])
         print("Datos validos")
         respuesta = Addpre(**payload)
 
@@ -88,3 +92,22 @@ def get_pre_id(*args, pre_id=None, **kwargs):
     except:
         raise bottle.HTTPError(400)
     raise bottle.HTTPError(200, respuesta)
+
+    ##Agregar respuestas
+
+@app.post("/<pre_id>/addres")
+def addres(*args, **kwargs):
+
+    payload = bottle.request.json
+    print(payload)
+    try:
+        pre_id = str(payload['pre_id'])
+        respuesta = str(payload['cheat'])
+        fecha = dt.date.fromisoformat(payload['fecha'])
+        print("Datos validos")
+        respuesta = add_res(**payload)
+
+    except:
+        print("Datos invalidos")
+        raise bottle.HTTPError(400)
+    raise bottle.HTTPError(201, respuesta)
