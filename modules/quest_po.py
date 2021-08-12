@@ -42,7 +42,7 @@ def get_id_details(id=None):
         ]
     print("done")
 
-
+##agregar encuesta
 def add_quest(clave_pre=None, clave_usuario=None, pregunta=None,  clave_tema=None):
     print("Datos de Pregunta")
     print(clave_pre, clave_usuario, pregunta, clave_tema)
