@@ -94,6 +94,7 @@ def get_pre_id(*args, pre_id=None, **kwargs):
     raise bottle.HTTPError(200, respuesta)
 
     ##Agregar respuestas
+##curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q003","respuesta": "respuesta1","fecha": "2021-08-12"}'
 
 @app.post("/<pre_id>/addres")
 def addres(*args, **kwargs):
@@ -102,7 +103,7 @@ def addres(*args, **kwargs):
     print(payload)
     try:
         pre_id = str(payload['pre_id'])
-        respuesta = str(payload['cheat'])
+        respuesta = str(payload['respuesta'])
         fecha = dt.date.fromisoformat(payload['fecha'])
         print("Datos validos")
         respuesta = add_res(**payload)
