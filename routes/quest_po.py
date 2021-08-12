@@ -35,8 +35,8 @@ def store(*args, **kwargs):
         print(respuesta)
         print("Almost done")
     except:
-        print("Datos incorrecros")
-        raise bottle.HTTPError(405, "datos invalidos")
+        print("Datos incorrectos")
+        raise bottle.HTTPError(405, "Datos invalidos")
     raise bottle.HTTPError(201, "Usuario agregado")
 
 ##Lista de usuarios
@@ -69,7 +69,7 @@ def newq(*args, **kwargs):
 
     except:
         print("Datos invalidos")
-        raise bottle.HTTPError(400)
+        raise bottle.HTTPError(405, "Datos invalidos")
     raise bottle.HTTPError(201, "Pregunta agregada")
 ##ver preguntas
 # curl http://localhost:8080/quest_po/listq -X GET
@@ -90,7 +90,7 @@ def get_pre_id(*args, pre_id=None, **kwargs):
     try:
         respuesta = get_pre(pre_id = pre_id)
     except:
-        raise bottle.HTTPError(400)
+        raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
 
     ##Agregar respuestas
@@ -110,5 +110,5 @@ def addres(*args, **kwargs):
 
     except:
         print("Datos invalidos")
-        raise bottle.HTTPError(400)
-    raise bottle.HTTPError(201, respuesta)
+        raise bottle.HTTPError(405, "Datos invalidos")
+    raise bottle.HTTPError(201, "Respuesta agregada correctamente")
