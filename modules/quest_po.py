@@ -48,14 +48,15 @@ def add_quest(clave_pre=None, clave_usuario=None, pregunta=None,  clave_tema=Non
     print(clave_pre, clave_usuario, pregunta, clave_tema)
     print("Exito")
 
-    datos_almacenados = {"clave_pre": clave_pre, "pregunta": pregunta,  "clave_tema":clave_tema }
+    almacenable = {"clave_pre": clave_pre, "pregunta": pregunta,  "clave_tema":clave_tema }
     nombre_de_archivo = f"{pregunta}-{clave_pre}-{clave_usuario}.json"
     datos = store_string(
         "pregunta/preguntas",
         nombre_de_archivo,
-        json.dumps(datos_almacenados)
+        json.dumps(almacenable)
     )
     return datos
+    
 
 def get_preguntas( clave_pre= None, pregunta = None):
     query_result = query_storage(
