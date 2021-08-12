@@ -72,14 +72,13 @@ def get_pre(pre_id=None):
     print("Exito")
 
     ##Agregar respuestas
-def add_res(vg_id=None, cheat_id=None, cheat=None, username=None, VideojuegoNombre=None):
-    print("Desde modulo almacenar_cheat")
-    #print(nombre, eda)
-    para_almacenar = {"vg_id": vg_id,"cheat_id": cheat_id, "cheat": cheat, "username":username, "VideojuegoNombre": VideojuegoNombre }
+def add_res(pre_id=None, respuesta=None, fecha=None):
+    print("Desde modulo almacena addres")
+    para_almacenar = {"pre_id": pre_id, "respuesta": respuesta, "fecha":fecha }
     json_text = json.dumps(para_almacenar)
-    nombre_de_archivo = f"{vg_id}-{cheat_id}-{VideojuegoNombre}.json"
+    nombre_de_archivo = f"{pre_id}-{respuesta}-{fecha}.json"
     datos = store_string(
-        "vg_info/Cheats",
+        "quest_po/Respuestas",
         nombre_de_archivo,
         json.dumps(para_almacenar)
     )
