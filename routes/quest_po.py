@@ -7,17 +7,16 @@ from modules.storage import store_string, get_storage_file
 from models.example import ExampleRecord
 from modules.quest_po import add_user
 from modules.quest_po import get_user_list
-from modules.quest_po import get_id_details
-from modules.quest_po import add_quest
-from modules.quest_po import get_preguntas
-from modules.quest_po import add_answer
-from modules.quest_po import get_answers
+from modules.quest_po import Addpre
+from modules.quest_po import get_quest
 
 
 app = BottleJson()
 
 
-@app.post("/store")
+
+## agregar un Usuario curl http://localhost:8080/quest_po/add_user  -X POST -H 'Content-Type: application/json'  -d '{"id" : "12" , "username" : "Oscar" , "genero" : "hombre" , "edad" : "23" , "fecha":"2021-10-10" , "correo" : "test@hotmail.com"}'
+@app.post("/add_user")
 def store(*args, **kwargs):
     payload = bottle.request.json
     print(payload)
@@ -35,10 +34,10 @@ def store(*args, **kwargs):
         print("Datos incorrecros")
         raise bottle.HTTPError(405, "datos invalidos")
     raise bottle.HTTPError(201, "Usuario agregado")
-## agregar pregunta
 
+##Lista de usuarios
 # curl http://localhost:8080/quest_po/list -X GET
-@app.get("/list")
+@app.get("/listuser")
 def get_all_info(*args, **kwargs):
     try:
        respuesta = get_user_list()
@@ -46,84 +45,33 @@ def get_all_info(*args, **kwargs):
         raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
 
-##$ curl http://localhost:8080/quest_po/1/addpregunta -X POST -H 'content-Type: application/json' -d '{"clave_pre":"212","clave_Usuario": "unis","pregunta": "Que son las TICS?", "clave_tema" : "TICS"}'
+##Agregar Pregunta
+##curl http://localhost:8080/quest_po/newq -X POST -H 'content-Type: application/json' -d  '{"pre_id":"Q012","user_name": "useer1","tema": "Tics", "pregunta" : "pregunta2"}'
 
-@app.post("/addsquest")
-def add_quest(*args, **kwargs):
-    payload = bottle.request.json
-    print(payload)
-    try:
-        clave_pre = str(payload['clave_pre'])
-        clave_usuario = str(payload['clave_usuario'])
-        pregunta = str(payload['pregunta'])
-        print("Datos Aceptados")
-        respuesta = add_quest(**payload)
-        print(respuesta)
-        print("Almost done")
-    except:
-        print("Datos incorrecros")
-        raise bottle.HTTPError(405, "datos invalidos")
-    raise bottle.HTTPError(201, "Usuario agregado")
 
-@app.post("/addpregunta")
-def bar(*args, **kwargs):
+@app.post("/newq")
+def newq(*args, **kwargs):
 
     payload = bottle.request.json
     print(payload)
     try:
-        clave_pre = str(payload['clave_pre'])
-        clave_usuario = str(payload['clave_usuario'])
+        pre_id = str(payload['pre_id'])
+        user_name = str(payload['user_name'])
+        tema = str(payload['tema'])
         pregunta = str(payload['pregunta'])
-        clave_tema = str(payload['clave_tema'])
         print("Datos validos")
-        pregunta = add_quest(**payload)
+        respuesta = Addpre(**payload)
+
     except:
         print("Datos invalidos")
-        raise bottle.HTTPError(400, "Datos invalidos")
-    raise bottle.HTTPError(201, "Creaste una nueva pregunta")
-
+        raise bottle.HTTPError(400)
+    raise bottle.HTTPError(201, "Pregunta agregada")
 ##ver preguntas
-# curl http://localhost:8080/quest_po/list -X GET
-@app.get("/list")
-def get_all_info(*args, **kwargs):
+# curl http://localhost:8080/quest_po/listq -X GET
+@app.get("/listq")
+def get_all_quest(*args, **kwargs):
     try:
-       respuesta = get_user_list()
+       respuesta = get_quest()
     except:
-        raise bottle.HTTPError(501, "Error interno")
+        raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
-
-## Add a user
-@app.post("/addUser")
-def add_a_user(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    print("holamundo")
-    return dict(code=501, message="Not implemented")
-
-## Get user info
-@app.get("/questpo/addUser/<name_id>")
-def get_user(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-
-
-@app.post("POST /quest-po/addquestion")
-def add_a_quest(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-
-## Get question  List
-@app.get("/questpo/list")
-def get_quest_list(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-
-## Get muestra la informacion de la respuesta
-@app.get("/quest-po/<respuesta_id>")
-def get_a_videogame(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
