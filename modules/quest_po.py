@@ -83,7 +83,6 @@ def add_res(pre_id=None, respuesta=None, fecha=None):
         json.dumps(para_almacenar)
     )
     return datos
-<<<<<<< HEAD
 
 def get_answers(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None, clave_tema=None):
     query_result = query_storage(
@@ -97,5 +96,3 @@ def get_answers(clave_pre=None, clave_usuario=None, datetime=None,respuesta=None
         ]
     print("Exito")
 ##sddf
-=======
->>>>>>> b00c3838d905a41a6100bdac76ff2d3e8795f6fe

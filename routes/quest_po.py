@@ -18,13 +18,9 @@ from modules.quest_po import add_res
 app = BottleJson()
 
 
-<<<<<<< HEAD
-@app.post("/store")
-=======
 
 ## agregar un Usuario curl http://localhost:8080/quest_po/add_user  -X POST -H 'Content-Type: application/json'  -d '{"id" : "12" , "username" : "Oscar" , "genero" : "hombre" , "edad" : "23" , "fecha":"2021-10-10" , "correo" : "test@hotmail.com"}'
 @app.post("/add_user")
->>>>>>> b00c3838d905a41a6100bdac76ff2d3e8795f6fe
 def store(*args, **kwargs):
     payload = bottle.request.json
     print(payload)
@@ -97,43 +93,6 @@ def get_pre_id(*args, pre_id=None, **kwargs):
         raise bottle.HTTPError(500, "Error interno")
     raise bottle.HTTPError(200, respuesta)
 
-<<<<<<< HEAD
-## Add a user
-@app.post("/addUser")
-def add_a_user(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    print("holamundo")
-    return dict(code=501, message="Not implemented")
-
-## Get user info
-@app.get("/questpo/addUser/<name_id>")
-def get_user(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-
-
-@app.post("POST /quest_po/addquestion")
-def add_a_quest(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-
-## Get question  List
-@app.get("/quest_po/list")
-def get_quest_list(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-
-## Get muestra la informacion de la respuesta
-@app.get("/quest_po/<respuesta_id>")
-def get_a_videogame(*args, **kwargs):
-    bottle.response.status = 501
-    bottle.response.content_type = "application/json"
-    return dict(code=501, message="Not implemented")
-=======
     ##Agregar respuestas
 ##curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q003","respuesta": "respuesta1","fecha": "2021-08-12"}'
 
@@ -153,4 +112,3 @@ def addres(*args, **kwargs):
         print("Datos invalidos")
         raise bottle.HTTPError(405, "Datos invalidos")
     raise bottle.HTTPError(201, "Respuesta agregada correctamente")
->>>>>>> b00c3838d905a41a6100bdac76ff2d3e8795f6fe
