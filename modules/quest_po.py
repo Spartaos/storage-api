@@ -58,7 +58,6 @@ def get_quest(pregunta=None, tema=None, fecha=None):
             return query_result["content"]
     if fecha is  None:
         return query_result["content"]
-
 ##ver pregunta por ID
 def get_pre(pre_id=None):
     query_result = query_storage(
