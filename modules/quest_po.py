@@ -7,7 +7,7 @@ from modules.storage import (
     get_storage_file
 )
 
-##agregar un usuario
+##agregar un usuarios
 def add_user(id = None, username = None, genero = None, edad = None,  fecha = None, correo = None):
 
     print("Datos de usario")
