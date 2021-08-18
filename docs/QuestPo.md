@@ -103,19 +103,19 @@ Las entidades en mente para este proyecto son las siguientes:
 `GET  /quest_po/<pre_id>`
 
 - 201, Muestra preguntas por Id
-- D.O.M, regresa mensaje de fallo  
+- 500, regresa mensaje de fallo  
 
 
 `POST /quest_po/<pre_id>/addres`
 - 201, Registra las respuestas a las preguntas
-- D.O.M, regresa mensaje de fallo  
+- 500, regresa mensaje de fallo  
 
 `GET  /quest_po/listres`
 
 - 201, Muestra las respuestas a las preguntas
-- D.O.M, regresa mensaje de fallo  
+- 500, regresa mensaje de fallo  
 
-### CASOS DE usurio
+### Casos de uso
 
 ## Agregado de Usuario
 
