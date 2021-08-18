@@ -48,7 +48,7 @@ def Addpre(pre_id=None, user_name=None, tema=None, pregunta=None, fecha=None):
     )
     return datos
 
-## obtener Pregunta
+## obtener Preguntas
 def get_quest(pregunta=None, tema=None, fecha=None):
     query_result = query_storage(
         "quest_po/Preguntas",
@@ -85,16 +85,24 @@ def add_res(pre_id=None,res_id=None , respuesta=None, fecha=None):
     )
     return datos
 
+## Ver Respuestas
+def get_ress(res_id=None):
+    query_result = query_storage(
+        "quest_po/Respuestas",
+    )
+    if res_id is  None:
+        return query_result["content"]
+
 
     ##ver respuesta por ID
 def get_res(res_id=None):
     query_result = query_storage(
-            "quest_po/Preguntas",
+        "quest_po/Respuesta",
     )
     if res_id is not None:
         return [
-            r
-            for r in query_result["content"]
-            if res_id in r
-            ]
+           r
+           for r in query_result["content"]
+           if pre_id in r
+        ]
     print("Exito")
