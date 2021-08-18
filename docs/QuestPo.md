@@ -12,7 +12,7 @@ Las entidades en mente para este proyecto son las siguientes:
 
 ### API
 
-|Interaccion con el servidor | Path                  | Descripción |
+| | Path                  | Descripción |
 |---------| --------------------- | ----------- |
 |SET| /quest-po/add_user| Registro de un usuario |
 |GET| /quest-po/listuser| Solicitar usuarios existentes |
