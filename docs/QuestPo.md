@@ -19,7 +19,7 @@ Las entidades en mente para este proyecto son las siguientes:
 |POST| /quest_po/newq | Agregar pregunta |
 |GET| /quest_po/listq| Ver preguntas |
 |GET| /quest_po/<pre_id>/getidq/ | Ver preguntas por id |
-|POST| /quest_po/pre_id/addres | Agregado de preguntas |
+|POST| /quest_po/pre_id/addres | Agregado de Respuestas |
 |GET| /quest_po/listres | Ver respuestas |
 
 
