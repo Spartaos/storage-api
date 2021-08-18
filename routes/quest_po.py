@@ -12,7 +12,7 @@ from modules.quest_po import Addpre
 from modules.quest_po import get_quest
 from modules.quest_po import get_pre
 from modules.quest_po import add_res
-from modules.quest_po import get_res
+from modules.quest_po import get_ress
 
 
 
@@ -115,11 +115,23 @@ def addres(*args, **kwargs):
         raise bottle.HTTPError(405, "Datos invalidos")
     raise bottle.HTTPError(201, "Respuesta agregada correctamente")
 
+    ##Ver Respuestas
+    ##curl http://localhost:8080/quest_po/listres -X GET
+
+@app.get("/listres")
+def get_all_res(*args, **kwargs):
+    try:
+       respuesta = get_ress()
+    except:
+        raise bottle.HTTPError(500, "Error interno")
+    raise bottle.HTTPError(200, respuesta)
+
+
     ##Ver pregunta por ID
     #curl http://localhost:8080/quest_po/R001/getidq -X GET
 
 
-    @app.get("<res_id>/getres")
+    @app.get("/<res_id>/getass")
     def get_res_id(*args, res_id=None, **kwargs):
         try:
             respuesta = get_res(res_id = res_id)
