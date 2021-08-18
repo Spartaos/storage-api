@@ -37,22 +37,17 @@ Las entidades en mente para este proyecto son las siguientes:
 - realizar una pregunta
 - la clave de la pregunta se realizara automaticamente
 
-### Estuctura de solicitud y respuesta
+### Estructuras de Solicitud y Respuestas
 
-## Registro de un usuario
 
-```
-{
-    "usuario": "clarkken99",
-    "password": "tumundouser"
-}
-```
 ## Registro de una pregunta de manera exitosa
 ```
     {
-      "clave_pre" : "Que es la paravirtualizacion?"
-      "datetime" : "XX-XX-XXXXHXX:XX:XX"
-      "Tema" : "Servidores"
+      "pre_id":"Q012",
+      "user_name": "useer1",
+      "tema": "Tics",
+      "pregunta" : "pregunta2",
+      "fecha":"2021-10-10"
     }
 ```
 
@@ -65,10 +60,13 @@ Las entidades en mente para este proyecto son las siguientes:
     }
 ```         
 
-## Mensaje de respuestas            
+## Registro  de respuestas            
 ```
 {
-          "Respuesta": "El uso de varias capas de virtualizacion"
+          pre_id":"Q003",
+          "res_id":"R001",
+          "respuesta": "respuesta1",
+          "fecha": "2021-08-12""
 
 
 }
