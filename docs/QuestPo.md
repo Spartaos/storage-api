@@ -115,6 +115,10 @@ Las entidades en mente para este proyecto son las siguientes:
 - 201, Muestra las respuestas a las preguntas
 - D.O.M, regresa mensaje de fallo  
 
+### CASOS DE usurio
+## Agregado de Usuario
+
+curl http://localhost:8080/quest_po/add_user  -X POST -H 'Content-Type: application/json'  -d '{"id" : "12" , "username" : "Oscar" , "genero" : "hombre" , "edad" : "23" , "fecha":"2021-10-10" , "correo" : "test@hotmail.com"}'
 
 
 
