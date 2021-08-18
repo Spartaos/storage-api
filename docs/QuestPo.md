@@ -8,19 +8,21 @@ Las entidades en mente para este proyecto son las siguientes:
 - Usuario (id_user,Nombre ,password,fecha_nac)
 - preguntas (clave_pre, pregunta, clave_usuario, datetime, clave_tema)
 - respuesta(clave_res,clave_pre, respuesta)
-- tema (clave_tema, tema)
+
 
 ### API
 
-| Path                  | Descripción |
-| --------------------- | ----------- |
-| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
-| /Quest-Po/question/<question_id>|Solicitar pregunta con id question_id|
-| /Quest_Po/add_a_quest |Agregar pregunta|
-| /Quest_Po/addrespuesta/<clave_res>|Agregar una respuesta|
-|/Quest_Po/userinfo/|Ver la informacion de los usuarios|
+|Interaccion con el servidor | Path                  | Descripción |
+|---------| --------------------- | ----------- |
+|SET| /quest-po/add_user| Registro de un usuario |
+|GET| /quest-po/listuser| Solicitar usuarios existentes |
+|SET| /quest_po/newq | Agregar pregunta |
+|GET| /quest_po/listq| Ver preguntas |
+|GET| /quest_po/<pre_id>/getidq/ | Ver preguntas por id |
+|SET| /quest_po/pre_id/addres | Agregado de preguntas |
+|GET| /quest_po/listres | Ver respuestas |
 
-###  Operaciones de Almacenamiento de datos
+
 
 
 ## Operaciones de usurio
@@ -67,7 +69,6 @@ Las entidades en mente para este proyecto son las siguientes:
 ```
 {
           "Respuesta": "El uso de varias capas de virtualizacion"
-          "Tema": "Servidores"
 
 
 }
