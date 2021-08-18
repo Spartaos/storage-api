@@ -137,4 +137,4 @@ def get_all_res(*args, **kwargs):
             respuesta = get_res(res_id = res_id)
         except:
             raise bottle.HTTPError(500, "Error interno")
-        raise bottle.HTTPError(200, respuesta)
+        raise bottle.HTTPError(200, "Respuesta agregada correctamente")
