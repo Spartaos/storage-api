@@ -14,12 +14,12 @@ Las entidades en mente para este proyecto son las siguientes:
 
 | | Path                  | Descripción |
 |---------| --------------------- | ----------- |
-|SET| /quest-po/add_user| Registro de un usuario |
+|POST| /quest-po/add_user| Registro de un usuario |
 |GET| /quest-po/listuser| Solicitar usuarios existentes |
-|SET| /quest_po/newq | Agregar pregunta |
+|POST| /quest_po/newq | Agregar pregunta |
 |GET| /quest_po/listq| Ver preguntas |
 |GET| /quest_po/<pre_id>/getidq/ | Ver preguntas por id |
-|SET| /quest_po/pre_id/addres | Agregado de preguntas |
+|POST| /quest_po/pre_id/addres | Agregado de preguntas |
 |GET| /quest_po/listres | Ver respuestas |
 
 
@@ -86,33 +86,33 @@ Las entidades en mente para este proyecto son las siguientes:
 ## Interaccion con el servidor
 
 
-`GET  /quest_po/User/<name_id>`
+`GET  /quest_po/listuser`
 
 - 200 regresa la informacion de un usuario
-- D.O.M, regresa mensaje de fallo
+- 500, regresa mensaje de fallo
 
-`POST /quest_po/add_a_quest`
+`POST /quest_po/newq`
 
 - Recibe la pregunta    
 - 201, Registra los datos de la pregunta
-- D.O.M, regresa estructura de mensaje de fallo     
+- 500, regresa estructura de mensaje de fallo     
 
-`GET  /quest_po/<keywords>`
+`GET  /quest_po/listq`
 
 - 200 Regresa una lista de preguntas de los usurios
-- D.O.M, regresa mensaje de fallo   
+- 500, regresa mensaje de fallo   
 
-`GET  /quest_po/<question_id>`
+`GET  /quest_po/<pre_id>`
 
-- 201, muetra la informacion de las preguntas echas
+- 201, Muestra preguntas por Id
 - D.O.M, regresa mensaje de fallo  
 
 
-`POST /quest_po/addrespuesta`
+`POST /quest_po/<pre_id>/addres`
 - 201, Registra las respuestas a las preguntas
 - D.O.M, regresa mensaje de fallo  
 
-`GET  /quest_po/<respuesta_id>`
+`GET  /quest_po/listres`
 
 - 201, Muestra las respuestas a las preguntas
 - D.O.M, regresa mensaje de fallo  
