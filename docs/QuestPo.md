@@ -169,9 +169,12 @@ Al finalizar el codigo, se puede llegar que el proyecto pude ofrecer mas areas d
 
 Otro de los objetivos del proyecto fue la falta de mas desarrollo del Front-end para una mejor vision de como se quiere realizar el proyecto visualmente
 
-### Computo en la nube
+-----------------------------------------------------------------------
 
-## Creacion de fork en storage-api
+
+## Computo en la nube
+
+### Creacion de fork en storage-api
 
 * Entregable : Señalar cual es el commit-has, a partir del que se realizo el fork
 
