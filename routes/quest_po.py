@@ -12,6 +12,7 @@ from modules.quest_po import Addpre
 from modules.quest_po import get_quest
 from modules.quest_po import get_pre
 from modules.quest_po import add_res
+from modules.quest_po import get_ress
 
 
 
@@ -94,7 +95,7 @@ def get_pre_id(*args, pre_id=None, **kwargs):
     raise bottle.HTTPError(200, respuesta)
 
     ##Agregar respuestas
-##curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q003","respuesta": "respuesta1","fecha": "2021-08-12"}'
+##curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q003","res_id":"R001","respuesta": "respuesta1","fecha": "2021-08-12"}'
 
 @app.post("/<pre_id>/addres")
 def addres(*args, **kwargs):
@@ -103,6 +104,7 @@ def addres(*args, **kwargs):
     print(payload)
     try:
         pre_id = str(payload['pre_id'])
+        res_id = str(payload['res_id'])
         respuesta = str(payload['respuesta'])
         fecha = dt.date.fromisoformat(payload['fecha'])
         print("Datos validos")
@@ -112,3 +114,27 @@ def addres(*args, **kwargs):
         print("Datos invalidos")
         raise bottle.HTTPError(405, "Datos invalidos")
     raise bottle.HTTPError(201, "Respuesta agregada correctamente")
+
+    ##Ver Respuestas
+    ##curl http://localhost:8080/quest_po/listres -X GET
+
+@app.get("/listres")
+def get_all_res(*args, **kwargs):
+    try:
+       respuesta = get_ress()
+    except:
+        raise bottle.HTTPError(500, "Error interno")
+    raise bottle.HTTPError(200, respuesta)
+
+
+    ##Ver pregunta por ID
+    #curl http://localhost:8080/quest_po/R001/getidq -X GET
+
+
+    @app.get("/<res_id>/getass")
+    def get_res_id(*args, res_id=None, **kwargs):
+        try:
+            respuesta = get_res(res_id = res_id)
+        except:
+            raise bottle.HTTPError(500, "Error interno")
+        raise bottle.HTTPError(200, "Respuesta agregada correctamente")

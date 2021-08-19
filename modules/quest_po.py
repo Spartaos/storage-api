@@ -7,7 +7,8 @@ from modules.storage import (
     get_storage_file
 )
 
-##agregar un usuario
+##agregar un usuarios
+
 def add_user(id = None, username = None, genero = None, edad = None,  fecha = None, correo = None):
 
     print("Datos de usario")
@@ -47,7 +48,7 @@ def Addpre(pre_id=None, user_name=None, tema=None, pregunta=None, fecha=None):
     )
     return datos
 
-## obtener Pregunta
+## obtener Preguntas
 def get_quest(pregunta=None, tema=None, fecha=None):
     query_result = query_storage(
         "quest_po/Preguntas",
@@ -72,14 +73,36 @@ def get_pre(pre_id=None):
     print("Exito")
 
     ##Agregar respuestas
-def add_res(pre_id=None, respuesta=None, fecha=None):
+def add_res(pre_id=None,res_id=None , respuesta=None, fecha=None):
     print("Desde modulo almacena addres")
-    para_almacenar = {"pre_id": pre_id, "respuesta": respuesta, "fecha":fecha }
+    para_almacenar = {"pre_id": pre_id,"res_id": res_id, "respuesta": respuesta, "fecha":fecha }
     json_text = json.dumps(para_almacenar)
-    nombre_de_archivo = f"{pre_id}-{respuesta}-{fecha}.json"
+    nombre_de_archivo = f"{pre_id}-{res_id}-{respuesta}-{fecha}.json"
     datos = store_string(
         "quest_po/Respuestas",
         nombre_de_archivo,
         json.dumps(para_almacenar)
     )
     return datos
+
+## Ver Respuestas
+def get_ress(res_id=None):
+    query_result = query_storage(
+        "quest_po/Respuestas",
+    )
+    if res_id is  None:
+        return query_result["content"]
+
+
+    ##ver respuesta por ID
+def get_res(res_id=None):
+    query_result = query_storage(
+        "quest_po/Respuesta",
+    )
+    if res_id is not None:
+        return [
+           r
+           for r in query_result["content"]
+           if pre_id in r
+        ]
+    print("Exito")

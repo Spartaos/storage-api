@@ -8,19 +8,21 @@ Las entidades en mente para este proyecto son las siguientes:
 - Usuario (id_user,Nombre ,password,fecha_nac)
 - preguntas (clave_pre, pregunta, clave_usuario, datetime, clave_tema)
 - respuesta(clave_res,clave_pre, respuesta)
-- tema (clave_tema, tema)
+
 
 ### API
 
-| Path                  | Descripción |
-| --------------------- | ----------- |
-| /Quest-Po/user/<user_id>|Solicitar informacion del usuario con id user_id, en el se incluyen sus preguntas realizadas|
-| /Quest-Po/question/<question_id>|Solicitar pregunta con id question_id|
-| /Quest_Po/add_a_quest |Agregar pregunta|
-| /Quest_Po/addrespuesta/<clave_res>|Agregar una respuesta|
-|/Quest_Po/userinfo/|Ver la informacion de los usuarios|
+| | Path                  | Descripción |
+|---------| --------------------- | ----------- |
+|POST| /quest-po/add_user| Registro de un usuario |
+|GET| /quest-po/listuser| Solicitar usuarios existentes |
+|POST| /quest_po/newq | Agregar pregunta |
+|GET| /quest_po/listq| Ver preguntas |
+|GET| /quest_po/<pre_id>/getidq/ | Ver preguntas por id |
+|POST| /quest_po/pre_id/addres | Agregado de Respuestas |
+|GET| /quest_po/listres | Ver respuestas |
 
-###  Operaciones de Almacenamiento de datos
+
 
 
 ## Operaciones de usurio
@@ -35,22 +37,17 @@ Las entidades en mente para este proyecto son las siguientes:
 - realizar una pregunta
 - la clave de la pregunta se realizara automaticamente
 
-### Estuctura de solicitud y respuesta
+### Estructuras de Solicitud y Respuestas
 
-## Registro de un usuario
 
-```
-{
-    "usuario": "clarkken99",
-    "password": "tumundouser"
-}
-```
 ## Registro de una pregunta de manera exitosa
 ```
     {
-      "clave_pre" : "Que es la paravirtualizacion?"
-      "datetime" : "XX-XX-XXXXHXX:XX:XX"
-      "Tema" : "Servidores"
+      "pre_id":"Q012",
+      "user_name": "useer1",
+      "tema": "Tics",
+      "pregunta" : "pregunta2",
+      "fecha":"2021-10-10"
     }
 ```
 
@@ -63,11 +60,13 @@ Las entidades en mente para este proyecto son las siguientes:
     }
 ```         
 
-## Mensaje de respuestas            
+## Registro  de respuestas            
 ```
 {
-          "Respuesta": "El uso de varias capas de virtualizacion"
-          "Tema": "Servidores"
+          pre_id":"Q003",
+          "res_id":"R001",
+          "respuesta": "respuesta1",
+          "fecha": "2021-08-12""
 
 
 }
@@ -85,36 +84,67 @@ Las entidades en mente para este proyecto son las siguientes:
 ## Interaccion con el servidor
 
 
-`GET  /quest_po/User/<name_id>`
+`GET  /quest_po/listuser`
 
 - 200 regresa la informacion de un usuario
-- D.O.M, regresa mensaje de fallo
+- 500, regresa mensaje de fallo
 
-`POST /quest_po/add_a_quest`
+`POST /quest_po/newq`
 
 - Recibe la pregunta    
 - 201, Registra los datos de la pregunta
-- D.O.M, regresa estructura de mensaje de fallo     
+- 500, regresa estructura de mensaje de fallo     
 
-`GET  /quest_po/<keywords>`
+`GET  /quest_po/listq`
 
 - 200 Regresa una lista de preguntas de los usurios
-- D.O.M, regresa mensaje de fallo   
+- 500, regresa mensaje de fallo   
 
-`GET  /quest_po/<question_id>`
+`GET  /quest_po/<pre_id>`
 
-- 201, muetra la informacion de las preguntas echas
-- D.O.M, regresa mensaje de fallo  
+- 201, Muestra preguntas por Id
+- 500, regresa mensaje de fallo  
 
 
-`POST /quest_po/addrespuesta`
+`POST /quest_po/<pre_id>/addres`
 - 201, Registra las respuestas a las preguntas
-- D.O.M, regresa mensaje de fallo  
+- 500, regresa mensaje de fallo  
 
-`GET  /quest_po/<respuesta_id>`
+`GET  /quest_po/listres`
 
 - 201, Muestra las respuestas a las preguntas
-- D.O.M, regresa mensaje de fallo  
+- 500, regresa mensaje de fallo  
+
+### Casos de uso
+
+## Agregado de Usuario
+
+```
+curl http://localhost:8080/quest_po/add_user  -X POST -H 'Content-Type: application/json'  -d '{"id" : "20" , "username" : "Oscar" , "genero" : "hombre" , "edad" : "23" , "fecha":"2021-10-10" , "correo" : "test@hotmail.com"}'
+
+```
+## Agregado de Preguntas
+```
+curl http://localhost:8080/quest_po/newq -X POST -H 'content-Type: application/json' -d  '{"pre_id":"Q020","user_name": "useer1","tema": "Tics", "pregunta" : "pregunta2", "fecha":"2021-10-10"}'
+```
+## Consulta de las preguntas
+```
+curl http://localhost:8080/quest_po/listq -X GET
+```
+## Consultas de las preguntas por Id
+```
+curl http://localhost:8080/quest_po/Q003/getidq -X GET
+```
+## Agregado de Respuestas
+```
+curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q020","res_id":"R020","respuesta": "respuesta1","fecha": "2021-08-12"}'
+
+```
+## Mostrar Respuestas
+```
+curl http://localhost:8080/quest_po/listres -X GET
+
+```
 
 
 
