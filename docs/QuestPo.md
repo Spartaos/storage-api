@@ -156,7 +156,18 @@ curl http://localhost:8080/quest_po/listres -X GET
 ```
 
 
+## Documentacion para continuacion del proyecto
+Al finalizar el codigo, se puede llegar que el proyecto pude ofrecer mas areas de oportunidad para desarrollo del mismo de manera que se puedan agregar mas funciones tales como:
 
+- Funcion para editar las preguntas de los usuarios.
+- Funcion para eliminar preguntas de los usuarios
+- Funcion para la busqueda de preguntas con sus respuestas por medio de Id
+- Funcion para la edicion de respuestas de los usuarios
+- Funciones para que los usuarios puedan editar las respuestas de los usuarios
+- Funcion para busqueda por temas de las Preguntas
+- Funcion para la busqueda de preguntas por tema
+
+Otro de los objetivos del proyecto fue la falta de mas desarrollo del Front-end para una mejor vision de como se quiere realizar el proyecto visualmente
 
 ### Computo en la nube
 
