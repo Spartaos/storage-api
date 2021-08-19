@@ -119,6 +119,7 @@ Las entidades en mente para este proyecto son las siguientes:
 
 ### Agregado de Usuario
 
+El usuario puede agregar un  perfil tomando en cuenta el username, genero, correo, edad y el Id
 ```
 curl http://localhost:8080/quest_po/add_user  -X POST -H 'Content-Type: application/json'  -d '{"id" : "20" , "username" : "Oscar" , "genero" : "hombre" , "edad" : "23" , "fecha":"2021-10-10" , "correo" : "test@hotmail.com"}'
 
@@ -131,19 +132,24 @@ Si un usuario desea agregar una pregunta es necesario contar con el Id
 curl http://localhost:8080/quest_po/newq -X POST -H 'content-Type: application/json' -d  '{"pre_id":"Q020","user_name": "useer1","tema": "Tics", "pregunta" : "pregunta2", "fecha":"2021-10-10"}'
 ```
 ### Consulta de las preguntas
+El Usuario puede consultar las preguntas realizadas de todos los demas usuarios
+
 ```
 curl http://localhost:8080/quest_po/listq -X GET
 ```
 ### Consultas de las preguntas por Id
+El usuario puede consultar las preguntas por Id
 ```
 curl http://localhost:8080/quest_po/Q003/getidq -X GET
 ```
 ### Agregado de Respuestas
+El usuario puee agregar Respuestas considerando el Id de la pregunta a la que desea contestar
 ```
 curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q020","res_id":"R020","respuesta": "respuesta1","fecha": "2021-08-12"}'
 
 ```
 ### Mostrar Respuestas
+El usuario puede mostrar respuestas de las preguntas realizadas
 ```
 curl http://localhost:8080/quest_po/listres -X GET
 
