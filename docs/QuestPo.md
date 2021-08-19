@@ -115,32 +115,35 @@ Las entidades en mente para este proyecto son las siguientes:
 - 201, Muestra las respuestas a las preguntas
 - 500, regresa mensaje de fallo  
 
-### Casos de uso
+## Casos de uso
 
-## Agregado de Usuario
+### Agregado de Usuario
 
 ```
 curl http://localhost:8080/quest_po/add_user  -X POST -H 'Content-Type: application/json'  -d '{"id" : "20" , "username" : "Oscar" , "genero" : "hombre" , "edad" : "23" , "fecha":"2021-10-10" , "correo" : "test@hotmail.com"}'
 
 ```
-## Agregado de Preguntas
+### Agregado de Preguntas
+
+Si un usuario desea agregar una pregunta es necesario contar con el Id
+
 ```
 curl http://localhost:8080/quest_po/newq -X POST -H 'content-Type: application/json' -d  '{"pre_id":"Q020","user_name": "useer1","tema": "Tics", "pregunta" : "pregunta2", "fecha":"2021-10-10"}'
 ```
-## Consulta de las preguntas
+### Consulta de las preguntas
 ```
 curl http://localhost:8080/quest_po/listq -X GET
 ```
-## Consultas de las preguntas por Id
+### Consultas de las preguntas por Id
 ```
 curl http://localhost:8080/quest_po/Q003/getidq -X GET
 ```
-## Agregado de Respuestas
+### Agregado de Respuestas
 ```
 curl http://localhost:8080/quest_po/Q003/addres -X POST -H 'Content-Type: application/json' -d '{"pre_id":"Q020","res_id":"R020","respuesta": "respuesta1","fecha": "2021-08-12"}'
 
 ```
-## Mostrar Respuestas
+### Mostrar Respuestas
 ```
 curl http://localhost:8080/quest_po/listres -X GET
 
